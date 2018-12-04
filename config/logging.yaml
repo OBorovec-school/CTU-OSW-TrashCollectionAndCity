@@ -1,0 +1,50 @@
+version: 1
+disable_existing_loggers: False
+formatters:
+    simple:
+        format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+    separated:
+        format: "_______________________________________________________________________________________________________
+        %(asctime)s - %(name)s - %(levelname)s - %(message)s
+        _______________________________________________________________________________________________________"
+
+handlers:
+    console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+
+    runtime:
+        class: logging.handlers.RotatingFileHandler
+        formatter: simple
+        filename: log/runtime.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 5
+        encoding: utf8
+
+    dc:
+        class: logging.handlers.RotatingFileHandler
+        formatter: simple
+        filename: log/datacrawler.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 5
+        encoding: utf8
+
+    unparseble:
+        class: logging.handlers.RotatingFileHandler
+        formatter: simple
+        filename: log/unparseble.log
+        maxBytes: 10485760 # 10MB
+        backupCount: 5
+        encoding: utf8
+
+loggers:
+    dc:
+        handlers: [dc, console]
+    unparseble:
+        handlers: [unparseble]
+        propagate: False
+
+
+root:
+    handlers: [runtime]
