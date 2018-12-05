@@ -8,9 +8,9 @@ from data_crawler.common.config import logging_init
 from data_crawler.common.config import DCConfig
 from data_crawler.common.structure import get_log_folder
 from data_crawler.crawlers import Crawler
-from data_crawler.crawlers.waste.brno.brno_separable_waste import BrnoSepWasteCrawler
-from data_crawler.crawlers.waste.prague.prague_separable_waste_containers import PragueSepWasteCrawler
-from data_crawler.crawlers.waste.prague.prague_waste_collection_points import PragueWasteCollectionPointsCrawler
+from data_crawler.crawlers.waste.brno_separable_waste import BrnoSepWasteCrawler
+from data_crawler.crawlers.waste.prague_separable_waste_containers import PragueSepWasteCrawler
+from data_crawler.crawlers.waste.prague_waste_collection_points import PragueWasteCollectionPointsCrawler
 
 crawlers: List[Crawler] = []
 
