@@ -11,6 +11,7 @@ from data_crawler.crawlers import Crawler
 from data_crawler.crawlers.waste.brno_separable_waste import BrnoSepWasteCrawler
 from data_crawler.crawlers.waste.prague_separable_waste_containers import PragueSepWasteCrawler
 from data_crawler.crawlers.waste.prague_waste_collection_points import PragueWasteCollectionPointsCrawler
+from data_crawler.crawlers.waste.waste_collection_points import WasteCollectionPointsCrawler
 
 crawlers: List[Crawler] = []
 
@@ -21,6 +22,7 @@ def run_init(conf_path):
     logging_init()
     logging.getLogger().setLevel(DCConfig.get_logging_level())
     # Init of crawlers
+    crawlers.append(WasteCollectionPointsCrawler())
     crawlers.append(BrnoSepWasteCrawler())
     crawlers.append(PragueSepWasteCrawler())
     crawlers.append(PragueWasteCollectionPointsCrawler())
